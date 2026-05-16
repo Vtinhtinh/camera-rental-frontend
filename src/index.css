@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #7c3aed;
+  --accent-color: #a855f7;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Buttons */
+.btn {
+  @apply px-5 py-2.5 rounded-xl font-medium transition-all duration-300 cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-600 to-secondary-600 text-white hover:shadow-btn;
+}
+
+.btn-secondary {
+  @apply bg-white text-slate-700 hover:bg-slate-50 border border-slate-200;
+}
+
+.btn-outline {
+  @apply border-2 border-primary-500 text-primary-600 hover:bg-primary-50 hover:border-primary-600;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-soft transition-all duration-300;
+}
+
+.card:hover {
+  @apply shadow-hover;
+}
+
+/* Section Titles */
+.section-title {
+  @apply text-3xl md:text-4xl font-extrabold text-slate-900 mb-3;
+}
+
+.section-subtitle {
+  @apply text-slate-500 text-lg mb-10;
+}
+
+/* Badges */
+.badge {
+  @apply inline-block px-3 py-1 text-xs font-semibold rounded-full;
+}
+
+.badge-success {
+  @apply bg-emerald-100 text-emerald-600;
+}
+
+.badge-warning {
+  @apply bg-amber-100 text-amber-600;
+}
+
+.badge-error {
+  @apply bg-red-100 text-red-600;
+}
+
+/* Form Inputs */
+input, select, textarea {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Select Dropdown */
+select option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* Tables */
+table {
+  @apply w-full;
+}
+
+th {
+  @apply text-left text-slate-500 font-medium text-sm uppercase tracking-wider;
+}
+
+td {
+  @apply text-slate-700;
+}
+
+tr {
+  @apply border-b border-slate-100;
+}
+
+tr:hover {
+  @apply bg-slate-50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Utility Classes */
+.text-gradient {
+  @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.border-gradient {
+  border-image: linear-gradient(90deg, #4f46e5, #7c3aed) 1;
+}
+
+/* Loading States */
+.skeleton {
+  @apply bg-slate-200 animate-pulse rounded;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  @apply fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50;
+}
+
+/* Toast Notifications */
+.toast {
+  @apply fixed bottom-4 right-4 px-6 py-4 rounded-xl shadow-2xl z-50 animate-slideUp;
+}
+
+.toast-success {
+  @apply bg-white border border-emerald-200 text-emerald-600 shadow-soft;
+}
+
+.toast-error {
+  @apply bg-white border border-red-200 text-red-600 shadow-soft;
+}
